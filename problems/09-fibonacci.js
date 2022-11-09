@@ -19,9 +19,19 @@ fibonacci(4); // 3
 fibonacci(10); // 55
 ***********************************************************************/
 
-function fibonacci(n) {
-  // Your code here
-}
+  function fibonacci(n, fibArr = [1,1]) {
+    // Your code here
+    if (n === 1 || n === 2 ) return 1;
+    // base case
+    if (n === fibArr.length) return fibArr[fibArr.length -1];
+    fibArr.push(fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2]);
+    return fibonacci(n, fibArr)
+  }
+
+console.log(fibonacci(10)) // 3
+ // n = 4
+  // n - 1 = 3 
+  // n - 2 = 2
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = fibonacci;
