@@ -12,10 +12,19 @@ flatten([1, 2]); // [1, 2]
 flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
-function flatten(arr) {
-  // Your code here
+function flatten(arr, i = 0, newArr = []) {
+  let num;
+  if (Math.sign(arr[i]) === 1) {
+    num = arr[i];
+    console.log(num)
+    newArr.push(num);
+  }
+  if (arr.length === 0) return newArr;
+  return flatten(arr.slice(1), i+1, newArr)
 }
   
+console.log(flatten([1, [2, [3]]])) // [1, 2, 3])
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = flatten;
   
